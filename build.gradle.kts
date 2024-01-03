@@ -1,5 +1,6 @@
 plugins {
     id("java")
+    id("io.ktor.plugin") version "2.3.7"
 }
 
 group = "com.github.koxsosen"
@@ -22,13 +23,19 @@ repositories {
 }
 
 dependencies {
-    testImplementation(platform("org.junit:junit-bom:5.9.1"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
+    testImplementation(platform("org.junit:junit-bom:5.9.2"))
+    testImplementation("org.junit.jupiter:junit-jupiter:5.9.2")
     implementation("space.arim.libertybans:bans-env-standalone:1.1.0-SNAPSHOT")
     implementation("org.yaml:snakeyaml:2.0")
     implementation("com.google.code.gson:gson:2.10.1")
     implementation("org.jeasy:easy-random-core:5.0.0")
+    implementation("org.slf4j:slf4j-simple:2.0.10")
 
+
+}
+
+application {
+    mainClass.set("com.github.koxsosen.Main")
 }
 
 tasks.test {
