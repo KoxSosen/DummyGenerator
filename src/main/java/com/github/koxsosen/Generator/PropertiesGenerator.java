@@ -2,18 +2,64 @@ package com.github.koxsosen.Generator;
 
 import com.github.javafaker.Faker;
 
+import java.time.Duration;
 import java.util.Random;
+import java.util.UUID;
 import java.util.random.RandomGenerator;
 
 public class PropertiesGenerator {
 
     public String getRandomReason() {
         Faker faker = new Faker();
-        if (Random.from(RandomGenerator.getDefault()).nextInt() % 2 == 0) {
+        Random random = new Random();
+
+        if (random.nextInt(0, 10) % 2 == 0) {
             return faker.hacker().abbreviation();
         } else {
             return faker.shakespeare().asYouLikeItQuote();
         }
+    }
+
+    public Duration getRandomDuration() {
+        Random random = new Random();
+
+        int number = random.nextInt(0, 10);
+        if (number % 2 == 0) {
+            // Another nest to try to add more permanent punishments.
+            int nextNumber = random.nextInt(0, 10);
+
+            if (nextNumber % 2 == 0) {
+                return Duration.ZERO;
+            } else {
+                return Duration.ofDays(random.nextLong(0, 100));
+            }
+
+        } else if (number % 3 == 0) {
+
+            int nextNumber = random.nextInt(0, 10);
+
+            if (nextNumber % 2 == 0) {
+                return Duration.ZERO;
+            } else {
+                return Duration.ofMinutes(random.nextLong(0, 100));
+            }
+
+        } else {
+
+            int nextNumber = random.nextInt(0, 10);
+
+            if (nextNumber % 2 == 0) {
+                return Duration.ZERO;
+            } else {
+                return Duration.ofHours(random.nextLong(0, 100));
+            }
+
+        }
+
+    }
+
+    public UUID getRandomdUUID() {
+        return UUID.randomUUID();
     }
 
 }
