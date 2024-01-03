@@ -1,2 +1,2 @@
-rootProject.name = "GarbageGenerator"
+rootProject.name = "DummyGenerator"
 
