@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import space.arim.injector.Injector;
 import space.arim.libertybans.api.LibertyBans;
 import space.arim.libertybans.bootstrap.BaseFoundation;
+import space.arim.libertybans.env.standalone.CommandDispatch;
 import space.arim.libertybans.env.standalone.ConsoleAudience;
 import space.arim.libertybans.env.standalone.ConsoleAudienceToLogger;
 import space.arim.libertybans.env.standalone.StandaloneLauncher;
@@ -18,13 +19,10 @@ public class LibertyBansStandaloneProvider {
     private static final LibertyBansStandaloneProvider instance = new LibertyBansStandaloneProvider();
     private static LibertyBans api;
     private static BaseFoundation foundation;
-
     private static final Logger logger = LoggerFactory.getLogger(LibertyBansStandaloneProvider.class);
-
 
     private LibertyBansStandaloneProvider(){}
     public void create() {
-
         Path dataFolder = Path.of("libertybans");
         ConsoleAudience consoleAudience = new ConsoleAudienceToLogger(logger);
 
@@ -42,19 +40,15 @@ public class LibertyBansStandaloneProvider {
     public void shutdown(BaseFoundation foundation) {
         foundation.shutdown();
     }
-
     public static LibertyBansStandaloneProvider getInstance() {
         return instance;
     }
-
     public static LibertyBans getApi() {
         return api;
     }
-
     public static BaseFoundation getFoundation() {
         return foundation;
     }
-
     public static Logger getLogger() {
         return logger;
     }

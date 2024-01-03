@@ -9,17 +9,24 @@ import space.arim.libertybans.api.punish.DraftPunishment;
 import space.arim.libertybans.api.punish.PunishmentDrafter;
 
 import java.util.UUID;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class BanAdder {
 
+    public void addNumberOfBans(int numberOfElements) {
+        for (int i = 0; i < numberOfElements; i++) {
+            addBan();
+        }
+    }
+
     // Add the humber of bans specified to the LibertyBans database using the API.
-    public void addBans(int lengthOfReasons) {
+    public void addBan() {
         PropertiesGenerator generator = new PropertiesGenerator();
         LibertyBans api = LibertyBansStandaloneProvider.getApi();
 
         PunishmentDrafter drafter = api.getDrafter();
 
-        String reason = generator.getRandomReason(lengthOfReasons);
+        String reason = generator.getRandomReason();
         UUID uuidToBan = UUID.randomUUID();
 
         DraftPunishment draftBan = drafter

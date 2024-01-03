@@ -28,14 +28,20 @@ dependencies {
     implementation("space.arim.libertybans:bans-env-standalone:1.1.0-SNAPSHOT")
     implementation("org.yaml:snakeyaml:2.0")
     implementation("com.google.code.gson:gson:2.10.1")
-    implementation("org.jeasy:easy-random-core:5.0.0")
+    implementation("com.github.javafaker:javafaker:1.0.2") {
+        exclude("org.yaml")
+    }
     implementation("org.slf4j:slf4j-simple:2.0.10")
-
-
 }
 
 application {
     mainClass.set("com.github.koxsosen.Main")
+}
+
+ktor {
+    fatJar {
+        archiveFileName.set("DummyGenerator-" + project.version + "-all.jar")
+    }
 }
 
 tasks.test {
