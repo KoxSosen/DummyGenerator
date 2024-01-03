@@ -1,6 +1,6 @@
 # DummyGenerator
 
-Generates dummy punishments to your LibertyBans database.
+Generates dummy punishments for your LibertyBans database.
 
 At the moments. punishments are added with;
 - Random victims based on UUIDs,
@@ -15,6 +15,6 @@ file. Then, follow the syntax mentioned upon boot.
 ## Examples:
 
 ```
-ban:20 - Generates 20 bans with random rasons, victinms, and durations.
+ban:20 - Generates 20 bans with random reasons, victinms, and durations.
 mute:4 - Generates 4 random mutes with random victims, durations, and reasons.
 ```

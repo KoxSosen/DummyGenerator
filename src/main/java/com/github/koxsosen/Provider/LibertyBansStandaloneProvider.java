@@ -13,7 +13,7 @@ import space.arim.omnibus.DefaultOmnibus;
 
 import java.nio.file.Path;
 
-// Written with help with how to use the standalone module.
+// Written with help from the LibertyBans class about how to use the standalone module.
 // https://github.com/A248/LibertyBans/commit/ed6215b6f72c53906e11eba2ca8e4dd2a39c86a9#diff-cdbcf36423d7fa78db3faef8139ce5486c8e41d7050cc39445735b6533fc7b46
 public class LibertyBansStandaloneProvider {
     private static final LibertyBansStandaloneProvider instance = new LibertyBansStandaloneProvider();
