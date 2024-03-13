@@ -23,7 +23,7 @@ public class LibertyBansStandaloneProvider {
 
     private LibertyBansStandaloneProvider(){}
     public void create() {
-        Path dataFolder = Path.of("libertybans");
+        Path dataFolder = Path.of("LibertyBans");
         ConsoleAudience consoleAudience = new ConsoleAudienceToLogger(logger);
 
         Injector injector = new StandaloneLauncher(
