@@ -35,14 +35,11 @@ public class Main {
                 continue;
             }
 
-            if (elements[0].equals("ban")) {
-                punishmentAdder.addNumberOfBans(Integer.parseInt(elements[1]));
-            } else if (elements[0].equals("mute")) {
-                punishmentAdder.addNumberOfMutes(Integer.parseInt(elements[1]));
-            } else if (elements[0].equals("kick")) {
-                punishmentAdder.addNumberOfKicks(Integer.parseInt(elements[1]));
-            } else if (elements[0].equals("warn")) {
-                punishmentAdder.addNumberOfWarns(Integer.parseInt(elements[1]));
+            switch (elements[0]) {
+                case "ban" -> punishmentAdder.addNumberOfBans(Integer.parseInt(elements[1]));
+                case "mute" -> punishmentAdder.addNumberOfMutes(Integer.parseInt(elements[1]));
+                case "kick" -> punishmentAdder.addNumberOfKicks(Integer.parseInt(elements[1]));
+                case "warn" -> punishmentAdder.addNumberOfWarns(Integer.parseInt(elements[1]));
             }
 
         }

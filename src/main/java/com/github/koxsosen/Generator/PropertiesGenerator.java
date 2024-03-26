@@ -2,10 +2,10 @@ package com.github.koxsosen.Generator;
 
 import com.github.javafaker.Faker;
 
+import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 import java.util.Random;
 import java.util.UUID;
-import java.util.random.RandomGenerator;
 
 public class PropertiesGenerator {
 
@@ -58,8 +58,13 @@ public class PropertiesGenerator {
 
     }
 
-    public UUID getRandomdUUID() {
-        return UUID.randomUUID();
+    public String getRandomName() {
+        Faker faker = new Faker();
+        return faker.name().username();
+    }
+
+    public UUID getRandomOfflineModeUUID(String name) {
+        return UUID.nameUUIDFromBytes(("OfflinePlayer:" + name).getBytes(StandardCharsets.UTF_8));
     }
 
 }

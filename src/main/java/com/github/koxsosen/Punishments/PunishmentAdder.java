@@ -8,7 +8,6 @@ import space.arim.libertybans.api.PunishmentType;
 import space.arim.libertybans.api.punish.DraftPunishment;
 import space.arim.libertybans.api.punish.PunishmentDrafter;
 
-import java.time.Duration;
 import java.util.UUID;
 
 public class PunishmentAdder {
@@ -45,7 +44,8 @@ public class PunishmentAdder {
         PunishmentDrafter drafter = api.getDrafter();
 
         String reason = generator.getRandomReason();
-        UUID uuidToBan = generator.getRandomdUUID();
+        String name = generator.getRandomName();
+        UUID uuidToBan = generator.getRandomOfflineModeUUID(name);
 
         DraftPunishment draftBan = drafter
                 .draftBuilder()
@@ -71,7 +71,8 @@ public class PunishmentAdder {
         PunishmentDrafter drafter = api.getDrafter();
 
         String reason = generator.getRandomReason();
-        UUID uuidToBan = generator.getRandomdUUID();
+        String name = generator.getRandomName();
+        UUID uuidToBan = generator.getRandomOfflineModeUUID(name);
 
         DraftPunishment draftBan = drafter
                 .draftBuilder()
@@ -97,7 +98,8 @@ public class PunishmentAdder {
         PunishmentDrafter drafter = api.getDrafter();
 
         String reason = generator.getRandomReason();
-        UUID uuidToBan = generator.getRandomdUUID();
+        String name = generator.getRandomName();
+        UUID uuidToBan = generator.getRandomOfflineModeUUID(name);
 
         DraftPunishment draftBan = drafter
                 .draftBuilder()
@@ -122,7 +124,8 @@ public class PunishmentAdder {
         PunishmentDrafter drafter = api.getDrafter();
 
         String reason = generator.getRandomReason();
-        UUID uuidToBan = generator.getRandomdUUID();
+        String name = generator.getRandomName();
+        UUID uuidToBan = generator.getRandomOfflineModeUUID(name);
 
         DraftPunishment draftBan = drafter
                 .draftBuilder()

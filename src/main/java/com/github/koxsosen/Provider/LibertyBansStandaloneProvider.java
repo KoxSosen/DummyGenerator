@@ -5,7 +5,6 @@ import org.slf4j.LoggerFactory;
 import space.arim.injector.Injector;
 import space.arim.libertybans.api.LibertyBans;
 import space.arim.libertybans.bootstrap.BaseFoundation;
-import space.arim.libertybans.env.standalone.CommandDispatch;
 import space.arim.libertybans.env.standalone.ConsoleAudience;
 import space.arim.libertybans.env.standalone.ConsoleAudienceToLogger;
 import space.arim.libertybans.env.standalone.StandaloneLauncher;
