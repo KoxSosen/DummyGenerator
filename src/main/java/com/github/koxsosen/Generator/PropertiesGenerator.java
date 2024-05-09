@@ -1,9 +1,7 @@
 package com.github.koxsosen.Generator;
 
 import com.github.javafaker.Faker;
-import com.github.koxsosen.Provider.LibertyBansStandaloneProvider;
 
-import java.net.InetAddress;
 import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 import java.util.Random;
@@ -62,7 +60,6 @@ public class PropertiesGenerator {
 
     public String getRandomName() {
         Faker faker = new Faker();
-        LibertyBansStandaloneProvider.getLogger().info(faker.name().username());
         return faker.name().username();
     }
 
