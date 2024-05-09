@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "com.github.koxsosen"
-version = "1.2-SNAPSHOT"
+version = "1.2"
 
 repositories {
     mavenCentral()
