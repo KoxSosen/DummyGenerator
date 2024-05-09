@@ -17,8 +17,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         LibertyBansStandaloneProvider.getLogger().info("The syntax is the following: punishment-type:number-of-punishments:punishment-creator-type");
-        LibertyBansStandaloneProvider.getLogger().info("Examples: \n ban:20:player");
-        LibertyBansStandaloneProvider.getLogger().info("kick:5:composite \n mute:10:address");
+        LibertyBansStandaloneProvider.getLogger().info("Examples: ban:20:player, kick:5:composite, mute:10:address");
         LibertyBansStandaloneProvider.getLogger().info("LibertyBans supports player, IP, and composite punishments.");
         LibertyBansStandaloneProvider.getLogger().info("So the options are player, address, composite.");
         LibertyBansStandaloneProvider.getLogger().info("Type 'exit' to stop the program.");

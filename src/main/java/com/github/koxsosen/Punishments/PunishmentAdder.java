@@ -8,6 +8,7 @@ import space.arim.libertybans.api.punish.PunishmentDrafter;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.time.Duration;
 import java.util.UUID;
 
 public class PunishmentAdder {
@@ -27,6 +28,7 @@ public class PunishmentAdder {
 
         String reason = generator.getRandomReason();
         String name = generator.getRandomName();
+        Duration duration = generator.getRandomDuration();
         UUID uuidToBan = generator.getRandomOfflineModeUUID(name);
         InetAddress inetAddress = null;
         try {
@@ -52,9 +54,13 @@ public class PunishmentAdder {
             default -> throw new IllegalStateException("Unexpected value: " + punishmentCreatorType);
         }
 
+        // Kicks can't have a temporary duration.
+        if (punishmentType == PunishmentType.KICK) {
+            duration = Duration.ZERO;
+        }
 
         DraftPunishment draftBan = drafter.draftBuilder()
-                .duration(generator.getRandomDuration())
+                .duration(duration)
                 .type(punishmentType)
                 .victim(victim)
                 .reason(reason)
@@ -62,7 +68,6 @@ public class PunishmentAdder {
 
         draftBan.enactPunishment().thenAcceptAsync((punishment) -> {
             if (punishment.isEmpty()) {
-                LibertyBansStandaloneProvider.getLogger().info("UUID {} is already banned", uuidToBan);
                 return;
             }
             LibertyBansStandaloneProvider.getLogger().info("ID of the enacted punishment is {}", punishment.get().getIdentifier());
