@@ -1,7 +1,9 @@
 package com.github.koxsosen.Generator;
 
 import com.github.javafaker.Faker;
+import com.github.koxsosen.Provider.LibertyBansStandaloneProvider;
 
+import java.net.InetAddress;
 import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 import java.util.Random;
@@ -60,11 +62,24 @@ public class PropertiesGenerator {
 
     public String getRandomName() {
         Faker faker = new Faker();
+        LibertyBansStandaloneProvider.getLogger().info(faker.name().username());
         return faker.name().username();
     }
 
     public UUID getRandomOfflineModeUUID(String name) {
         return UUID.nameUUIDFromBytes(("OfflinePlayer:" + name).getBytes(StandardCharsets.UTF_8));
+    }
+
+    public String getRandomIP() {
+        Faker faker = new Faker();
+        Random random = new Random();
+
+        int number = random.nextInt(0, 2);
+        if (number % 2 == 0) {
+            return faker.internet().ipV4Address();
+        } else {
+            return faker.internet().ipV6Address();
+        }
     }
 
 }

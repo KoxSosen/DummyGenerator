@@ -16,8 +16,11 @@ public class Main {
         LibertyBansStandaloneProvider.getLogger().info("Enabled and ready to take punishments.");
         Scanner scanner = new Scanner(System.in);
 
-        LibertyBansStandaloneProvider.getLogger().info("The syntax is the following: punishment-type:number-of-punishments");
-        LibertyBansStandaloneProvider.getLogger().info("Example: ban:20");
+        LibertyBansStandaloneProvider.getLogger().info("The syntax is the following: punishment-type:number-of-punishments:punishment-creator-type");
+        LibertyBansStandaloneProvider.getLogger().info("Examples: \n ban:20:player");
+        LibertyBansStandaloneProvider.getLogger().info("kick:5:composite \n mute:10:address");
+        LibertyBansStandaloneProvider.getLogger().info("LibertyBans supports player, IP, and composite punishments.");
+        LibertyBansStandaloneProvider.getLogger().info("So the options are player, address, composite.");
         LibertyBansStandaloneProvider.getLogger().info("Type 'exit' to stop the program.");
 
         while (true) {
@@ -30,17 +33,12 @@ public class Main {
 
             String[] elements = line.split(":");
 
-            if (elements.length < 2) {
+            if (elements.length < 3) {
                 LibertyBansStandaloneProvider.getLogger().info("Invalid syntax, please try again.");
                 continue;
             }
 
-            switch (elements[0]) {
-                case "ban" -> punishmentAdder.addNumberOfBans(Integer.parseInt(elements[1]));
-                case "mute" -> punishmentAdder.addNumberOfMutes(Integer.parseInt(elements[1]));
-                case "kick" -> punishmentAdder.addNumberOfKicks(Integer.parseInt(elements[1]));
-                case "warn" -> punishmentAdder.addNumberOfWarns(Integer.parseInt(elements[1]));
-            }
+            punishmentAdder.addNumberOfPunishments(elements[0], Integer.parseInt(elements[1]), elements[2]);
 
         }
 
