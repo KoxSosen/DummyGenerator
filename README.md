@@ -15,6 +15,6 @@ file. Then, follow the syntax mentioned upon boot.
 ## Examples:
 
 ```
-ban:20 - Generates 20 bans with random reasons, victinms, and durations.
-mute:4 - Generates 4 random mutes with random victims, durations, and reasons.
+ban:20:player - Generates 20 UUID based bans with random reasons, victinms, and durations.
+mute:4:address - Generates 4 IP based random mutes with random victims, durations, and reasons.
 ```
